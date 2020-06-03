@@ -1,1 +1,4 @@
 py4j
+pylint
+selenium
+python-dotenv
