@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
-import config
+from . import config
 
 def get_driver():
     if config.BROWSER == 'chrome':
