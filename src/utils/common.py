@@ -20,6 +20,6 @@ def get_element_by_name(driver, name, timeout = 10 * 1000):
     return element
 
 def get_element_by_xpath(driver, xpath, timeout = 10 * 1000):
-    element = WebDriverWait(driver, timeout).until(lambda x: x.find_element_by_name(xpath))
+    element = WebDriverWait(driver, timeout).until(lambda x: x.find_element_by_xpath(xpath))
 
     return element
