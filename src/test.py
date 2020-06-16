@@ -2,18 +2,18 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+import json
+import requests
+from datetime import datetime
 import utils.config as config
 
 print(config.TEST_ENV_URL)
 
+TEAMS_WEBHOOK_URL = os.getenv('TEAMS_WEBHOOK_URL')
+print(TEAMS_WEBHOOK_URL)
 
-# OR, the same with increased verbosity
-# load_dotenv(verbose=True)
-
-# OR, explicitly providing path to '.env'
-# from pathlib import Path  # python3 only
-# env_path = Path('.') / '.env'
-# load_dotenv(dotenv_path=env_path)
-
-print(os.getenv('TEAMS_WEBHOOK_URL'))
-print('Hello World')
+data = {"text":"Hello World!"}
+headers = {'Content-Type': 'application/json;charset=UTF-8', 'Content-Length': str(len(data))}   
+r = requests.post(TEAMS_WEBHOOK_URL, data=json.dumps(data)) 
+print(r.text)
+print(r.status_code)

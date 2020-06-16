@@ -7,9 +7,9 @@ from . import locator
 from dotenv import load_dotenv
 load_dotenv()
 
-def login(driver):
+def login(driver, url):
     action.maximize_window(driver)
-    action.open_url(driver, config.TEST_ENV_URL)
+    action.open_url(driver, url)
     time.sleep(5)
 
     username = os.getenv('TEST_USERNAME')
@@ -32,9 +32,13 @@ def login(driver):
         action.click(driver, 'id', locator.loginMicrosoftNo)
     time.sleep(5)
 
-def admin_login(driver):
-    username = os.getenv('TEST_USERNAME')
-    password = os.getenv('TEST_PASSWORD')
+def admin_login(driver, url):
+    action.maximize_window(driver)
+    action.open_url(driver, url)
+    time.sleep(5)
+
+    username = os.getenv('ADMIN_USERNAME')
+    password = os.getenv('ADMIN_PASSWORD')
     action.input_text(driver, 'id', locator.loginUsername, username)
     action.click(driver, 'id', locator.loginSubmit)
     time.sleep(3)
@@ -44,7 +48,10 @@ def admin_login(driver):
     action.click(driver, 'id', locator.loginMicrosoftNo)
     time.sleep(5)
 
-def student_login(driver):
+def student_login(driver, url):
+    action.maximize_window(driver)
+    action.open_url(driver, url)
+    time.sleep(5)
     username = os.getenv('TEST_USERNAME')
     password = os.getenv('TEST_PASSWORD')
     action.click(driver, 'id', locator.loginUsername)

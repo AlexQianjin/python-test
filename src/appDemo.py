@@ -12,7 +12,7 @@ SXApp.openLink("https://cn.bing.com")
 screen = SXScreen()
 screen.getCenter()
 
-img = str(WindowsPath.joinpath(WindowsPath.cwd(), 'images', 'bing_input.png'))
+img = str(WindowsPath.joinpath(WindowsPath.cwd(),'src' , 'images', 'bing_input.png'))
 print(img)
 
 # a Match object is completely handled at the Java level

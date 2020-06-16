@@ -1,4 +1,7 @@
+pytest
+pytest-html
 py4j
 pylint
 selenium
 python-dotenv
+requests
