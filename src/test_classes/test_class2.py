@@ -8,6 +8,7 @@ from pathlib import WindowsPath
 from ..utils import func
 from ..utils import common
 
+
 @pytest.fixture(scope='class')
 def driver_init(request):
     web_driver = webdriver.Chrome()
@@ -17,15 +18,17 @@ def driver_init(request):
     images_path = str(WindowsPath.joinpath(WindowsPath.cwd(), 'src', 'images'))
     print(images_path)
     addImagePath(images_path)
-    yield 
+    yield
     print('quit driver')
     web_driver.quit()
+
 
 @pytest.mark.usefixtures('driver_init')
 class BasicChromeTest:
     pass
 
-class TestClass2(BasicChromeTest):    
+
+class TestClass2(BasicChromeTest):
     def test_bing(self):
         driver = self.driver
         driver.maximize_window()
@@ -37,7 +40,7 @@ class TestClass2(BasicChromeTest):
         result = result_element.text
         print(result)
         assert result == 'WEB'
-    
+
     def test_bing2(self):
         driver = self.driver
         driver.maximize_window()
@@ -46,7 +49,7 @@ class TestClass2(BasicChromeTest):
 
         screen = Screen()
         screen.getCenter()
-        match = screen.exists('bing_input.png', 3.0) # number must be float/double
+        match = screen.exists('bing_input.png', 3.0)  # number must be float/double
         print(match)
         if match:
             match.type("SikuliX")
@@ -66,16 +69,16 @@ class TestClass2(BasicChromeTest):
         time.sleep(3)
         screen = Screen()
         screen.getCenter()
-        match = screen.exists('bing_input.png', 3.0) # number must be float/double
+        match = screen.exists('bing_input.png', 3.0)  # number must be float/double
         print(match)
         if match:
             match.type("SikuliX")
             # time.sleep(3)
-            match_search = screen.exists('bing_search.png', 3.0) 
+            match_search = screen.exists('bing_search.png', 3.0)
             if match_search:
                 match_search.click()
             else:
-                print('search not found')    
+                print('search not found')
         else:
             print('not match')
         time.sleep(3)

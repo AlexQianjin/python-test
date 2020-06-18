@@ -26,7 +26,7 @@ This project is an automation testing solution for ACTC. Here is the skill set f
     pip install virtualenv
     python -m venv venv
     PS > .\venv\Scripts\Activate.ps1
-    pip install -r requirements
+    pip install -r .\requirements.txt
     ```
 6. Config the openjdk
     - Download the openjdk [Download](https://jdk.java.net/14/)
@@ -65,4 +65,9 @@ Run the following script to start the automation testing, the **test_classes** f
 
 ```
 pytest .\src\test_classes --html=report.html --self-contained-html
+```
+
+# Additional
+```
+PS> pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 ```

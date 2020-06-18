@@ -2,6 +2,7 @@ pytest
 pytest-html
 py4j
 pylint
+autopep8
 selenium
 python-dotenv
 requests
